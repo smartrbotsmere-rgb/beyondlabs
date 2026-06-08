@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+<!-- SEO Meta Tags -->
+<title>Beyond Your A1c</title>
+<meta property="og:title" content="Beyond Your A1c" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Beyond Your A1c" />
+<!-- End SEO Meta Tags -->
+<meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-data">
+<meta name="sheet-rows-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-rows">
+<meta name="sheet-writes-enabled" content="true">
+<meta name="sheet-allow-create" content="true">
+<meta name="sheet-allow-delete" content="false">
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="lp-mpy5ovz5-lqmzm";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  var u=new URL(location.href);var found=null;var changed=false;
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
+
+<style data-gate>body{visibility:hidden;}</style>
+<script data-gate>
+(function(){
+  var slug='lp-mpy5ovz5-lqmzm';var apiBase='https://paymegpt.com';var AL_TOKEN_KEY='lp_al_'+slug;var ACCESS_TOKEN_KEY='lp_access_'+slug;var alPassed=false;
+  var storedToken=localStorage.getItem(AL_TOKEN_KEY);if(storedToken){try{var b64=storedToken.indexOf('.')>0?storedToken.split('.')[0]:storedToken;var parts=atob(b64).split(':');if(parts.length>=2){var ts=parseInt(parts[parts.length-1]);if(Date.now()-ts<30*24*60*60*1000){alPassed=true;try{sessionStorage.setItem(ACCESS_TOKEN_KEY,storedToken);}catch(e){}}}}catch(e){}}
+  if(alPassed){document.addEventListener('DOMContentLoaded',function(){document.body.style.visibility='visible';});return;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var gateHtml='<div id="allowlist-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:16px;"><div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;"><div style="width:64px;height:64px;border-radius:50%;background:#f0f4ff;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Access Restricted</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Enter your email to verify access.</p><form id="al-form"><input type="email" id="al-email" placeholder="you@example.com" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" /><div id="al-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="al-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Verify Access</button></form></div></div>';
+    document.body.insertAdjacentHTML('beforeend',gateHtml);document.body.style.visibility='visible';
+    var alForm=document.getElementById('al-form');var alEmail=document.getElementById('al-email');var alBtn=document.getElementById('al-btn');var alError=document.getElementById('al-error');
+    alForm.addEventListener('submit',function(e){e.preventDefault();var email=alEmail.value.trim();if(!email)return;alBtn.disabled=true;alBtn.textContent='Verifying...';alError.style.display='none';fetch(apiBase+'/api/landing-pages/public/'+slug+'/verify-allowlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})}).then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});}).then(function(res){if(res.data.allowed){localStorage.setItem(AL_TOKEN_KEY,res.data.accessToken);try{sessionStorage.setItem('lp_access_'+slug,res.data.accessToken);}catch(e){}document.getElementById('allowlist-gate').remove();}else{alError.textContent=res.data.message||'Email not authorized';alError.style.display='block';}}).catch(function(){alError.textContent='Verification failed. Please try again.';alError.style.display='block';}).finally(function(){alBtn.disabled=false;alBtn.textContent='Verify Access';});});
+    alEmail.focus();
+  });
+})();
+</script>
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4523');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='zfySufi';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="loading"><div class="loading-spinner"></div><p class="loading-text">Loading your dashboard...</p></div>
+<div id="app" style="display:none;">
+  <nav class="nav">
+    <div class="nav-brand"><div class="nav-mark">A1c</div><span class="nav-name">Beyond Your A1c</span></div>
+    <span class="nav-email" id="nav-email"></span>
+  </nav>
+  <div class="page">
+    <div class="hero">
+      <div class="hero-label">Your health dashboard</div>
+      <div class="hero-greeting" id="hero-greeting">Welcome back.</div>
+      <div class="hero-sub" id="hero-sub">Your lab history is ready below.</div>
+      <div class="hero-disclaimer"><strong>Important:</strong> Beyond Your A1c highlights patterns in your results for your own awareness only. This is not medical advice. Always discuss results with your healthcare provider.</div>
+    </div>
+    <div class="card" id="trend-box" style="display:none;">
+      <div class="section-title">What your results show</div>
+      <div class="section-sub" id="trend-dates"></div>
+      <div id="trend-items"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-bottom:4px;">Upload Lab Results</div>
+      <div class="section-sub">PDF or image - any date, past or present. Each upload builds your history.</div>
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-inp').click()">
+        <div id="uz-idle"><div class="uz-icon">&#128203;</div><div class="uz-title">Tap to browse or drop results here</div><div class="uz-sub">PDF, PNG, JPG - any format from your lab</div></div>
+        <div id="uz-spin" style="display:none;"><div class="uz-spinner"></div><div class="uz-title" style="color:var(--green-mid);">Reading your results...</div><div class="uz-sub">Comparing to ADA guidelines</div></div>
+        <input type="file" id="file-inp" accept=".pdf,.png,.jpg,.jpeg,.webp" style="display:none;"/>
+      </div>
+      <div class="analysis" id="analysis-panel">
+        <div class="an-head"><div class="an-title">&#10003; Analysis complete</div><button class="btn-save" id="save-btn">Save to history</button></div>
+        <div class="an-body">
+          <div class="an-summary" id="an-summary"></div>
+          <div id="an-pos-wrap" style="display:none;"><div class="an-pos"><div class="an-section good">What's looking great</div><div id="an-pos-list"></div></div></div>
+          <div id="an-flag-wrap" style="display:none;" class="mt"><div class="an-flags"><div class="an-section flag">Worth discussing with your doctor</div><div id="an-flag-list"></div></div></div>
+          <div class="an-disc">For informational purposes only - not medical advice. Discuss all results with your healthcare provider.</div>
+        </div>
+      </div>
+    </div>
+    <div id="latest-section" style="display:none;">
+      <div class="latest-header"><div class="section-title">Latest Results</div><div class="latest-date-badge" id="latest-date"></div></div>
+      <div class="results-grid" id="results-grid"></div>
+    </div>
+    <div class="hist-box mt" id="hist-box" style="display:none;">
+      <div class="hist-head">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <div class="section-title">Your History</div>
+          <div class="hist-count" id="hist-count"></div>
+        </div>
+        <div class="section-sub">All uploads, newest first. Scroll right to see all markers.</div>
+      </div>
+      <div class="hist-scroll"><table class="hist-table"><thead id="hist-thead"></thead><tbody id="hist-tbody"></tbody></table></div>
+      <div class="empty-p dn" id="hist-empty">No history yet - upload your first results above.</div>
+    </div>
+    <div class="section-title mt" style="margin-bottom:10px;">Trusted Resources</div>
+    <div class="res-grid">
+      <a class="res-card" href="https://www.diabetes.org/diabetes/a1c" target="_blank"><div class="res-mark" style="background:var(--green-mid);">ADA</div><div><div class="res-name">American Diabetes Assoc.</div><div class="res-desc">A1c goals &amp; care</div></div></a>
+      <a class="res-card" href="https://www.mayoclinic.org/tests-procedures/a1c-test/about/pac-20384643" target="_blank"><div class="res-mark" style="background:#2B5A8C;">Mayo</div><div><div class="res-name">Mayo Clinic</div><div class="res-desc">A1c explained</div></div></a>
+      <a class="res-card" href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis/a1c-test" target="_blank"><div class="res-mark" style="background:#1A4E6B;">NIH</div><div><div class="res-name">NIH / NIDDK</div><div class="res-desc">Diabetes research</div></div></a>
+    </div>
+    <div class="page-footer">Beyond Your A1c is an informational tool only. It does not provide medical advice or treatment recommendations. Always consult your doctor before making any changes to your care.</div>
+  </div>
+</div>
+<script>
+(function(){
+// PMG injects the PIN-verified email into a meta tag at serve time
+var verifiedEmail=(document.querySelector('meta[name="visitor-email"]')||{}).content||'';
+var SHEET_URL=(document.querySelector('meta[name="sheet-data-url"]')||{}).content;
+var M={'a1c':{lb:'A1c',u:'%',g:function(v){return v<7;},w:function(v){return v<8;},lk:'https://www.diabetes.org/diabetes/a1c',ng:'At or below your ADA target.',nw:'Slightly above target.',nf:'Above target - discuss with your doctor.',d:'lower'},'glucose':{lb:'Glucose',u:'mg/dL',g:function(v){return v<100;},w:function(v){return v<126;},lk:'https://www.mayoclinic.org/diseases-conditions/diabetes/diagnosis-treatment/drc-20371451',ng:'Within healthy fasting range.',nw:'Mildly elevated.',nf:'Elevated - discuss with your doctor.',d:'lower'},'egfr':{lb:'eGFR',u:'mL/min',g:function(v){return v>=60;},w:function(v){return v>=45;},lk:'https://www.niddk.nih.gov/health-information/kidney-disease',ng:'Kidney function in normal range.',nw:'Mildly reduced - monitor.',nf:'Reduced - discuss with your doctor.',d:'higher'},'ldl':{lb:'LDL',u:'mg/dL',g:function(v){return v<100;},w:function(v){return v<130;},lk:'https://www.heart.org/en/health-topics/cholesterol',ng:'LDL at recommended level.',nw:'Slightly elevated.',nf:'Elevated - discuss with your doctor.',d:'lower'},'hdl':{lb:'HDL',u:'mg/dL',g:function(v){return v>=50;},w:function(v){return v>=40;},lk:'https://www.heart.org/en/health-topics/cholesterol',ng:'Good protective cholesterol.',nw:'Could be higher.',nf:'Low - discuss with your doctor.',d:'higher'},'triglycerides':{lb:'Triglycerides',u:'mg/dL',g:function(v){return v<150;},w:function(v){return v<200;},lk:'https://www.mayoclinic.org/diseases-conditions/high-blood-cholesterol/in-depth/triglycerides/art-20048186',ng:'Within normal range.',nw:'Mildly elevated.',nf:'Elevated - discuss with your doctor.',d:'lower'},'creatinine':{lb:'Creatinine',u:'mg/dL',g:function(v){return v<1.2;},w:function(v){return v<1.5;},lk:'https://www.niddk.nih.gov/',ng:'Kidney marker normal.',nw:'Slightly elevated.',nf:'Elevated - discuss with your doctor.',d:'lower'},'tsh':{lb:'TSH',u:'mIU/L',g:function(v){return v>=0.5&&v<=4.5;},w:function(v){return v>=0.3&&v<=6;},lk:'https://www.mayoclinic.org/tests-procedures/tsh-test/about/pac-20395289',ng:'Thyroid function normal.',nw:'Slightly outside normal.',nf:'Outside normal - discuss with your doctor.',d:'range'},'hemoglobin':{lb:'Hemoglobin',u:'g/dL',g:function(v){return v>=12;},w:function(v){return v>=11;},lk:'https://www.niddk.nih.gov/',ng:'Hemoglobin normal.',nw:'Slightly low.',nf:'Low - discuss with your doctor.',d:'higher'},'vitamind':{lb:'Vitamin D',u:'ng/mL',g:function(v){return v>=30;},w:function(v){return v>=20;},lk:'https://www.niddk.nih.gov/',ng:'Vitamin D in good range.',nw:'Could be higher.',nf:'Low - discuss with your doctor.',d:'higher'},'ferritin':{lb:'Ferritin',u:'ng/mL',g:function(v){return v>=15;},w:function(v){return v>=10;},lk:'https://www.niddk.nih.gov/',ng:'Iron stores look good.',nw:'Slightly low.',nf:'Low - discuss with your doctor.',d:'higher'}};
+function gk(r){return r.toLowerCase().replace(/[\s\-\(\)_\.]/g,'').replace('vitamind25oh','vitamind').replace('vitd','vitamind').replace('hba1c','a1c');}
+function gm(r){return M[gk(r)]||null;}
+function gs(m,v){var n=parseFloat(v);if(isNaN(n))return 'neutral';if(m.g(n))return 'good';if(m.w(n))return 'watch';return 'flag';}
+function sl(s){return s==='good'?'Good':s==='watch'?'Watch':s==='flag'?'Flagged':'--';}
+function ta(p,c,d){var a=parseFloat(p),b=parseFloat(c);if(isNaN(a)||isNaN(b)||Math.abs(b-a)<0.01)return '';if(d==='lower')return b<a?'down':'up';if(d==='higher')return b>a?'up':'down';return '';}
+function tdir(p,c,d){var a=parseFloat(p),b=parseFloat(c);if(isNaN(a)||isNaN(b)||Math.abs(b-a)<0.01)return 'flat';if(d==='lower')return b<a?'down':'up';if(d==='higher')return b>a?'down':'up';return 'flat';}
+function srt(rows){return rows.slice().sort(function(a,b){return new Date(b.Date||0)-new Date(a.Date||0);});}
+function td8(){return new Date().toISOString().slice(0,10);}
+function fd(d){if(!d)return '--';var p=d.split('-');return p.length===3?p[1]+'/'+p[2]+'/'+p[0]:d;}
+var SKIP=['date','name','email','upload_notes','_rownumber'];
+function ilc(k){return SKIP.indexOf(k.toLowerCase())===-1&&k[0]!=='_';}
+function lc(row){return Object.keys(row).filter(function(k){return ilc(k)&&row[k]&&(''+row[k]).trim();});}
+function alc(rows){var s={},o=[];rows.forEach(function(r){Object.keys(r).forEach(function(k){if(ilc(k)&&!s[k]){s[k]=1;o.push(k);}});});return o;}
+var rows=[],pend=null;
+function ge(id){return document.getElementById(id);}
+var ldg=ge('loading'),appEl=ge('app'),nemail=ge('nav-email'),hgr=ge('hero-greeting'),hsub=ge('hero-sub');
+var tbox=ge('trend-box'),tdates=ge('trend-dates'),titems=ge('trend-items');
+var uzone=ge('upload-zone'),finp=ge('file-inp'),uzid=ge('uz-idle'),uzspin=ge('uz-spin');
+var apanel=ge('analysis-panel'),ansum=ge('an-summary'),anpw=ge('an-pos-wrap'),anpl=ge('an-pos-list'),anfw=ge('an-flag-wrap'),anfl=ge('an-flag-list'),savebtn=ge('save-btn');
+var lsec=ge('latest-section'),ldate=ge('latest-date'),rgrid=ge('results-grid');
+var hbox=ge('hist-box'),hcnt=ge('hist-count'),hthead=ge('hist-thead'),htbody=ge('hist-tbody'),hemp=ge('hist-empty');
+
+if(verifiedEmail) nemail.textContent=verifiedEmail;
+
+if(!SHEET_URL){
+  ldg.style.display='none';appEl.style.display='block';render();
+} else {
+  var ctrl=new AbortController();
+  var tmo=setTimeout(function(){ctrl.abort();},10000);
+  fetch(SHEET_URL,{signal:ctrl.signal})
+    .then(function(r){clearTimeout(tmo);return r.json();})
+    .then(function(d){rows=(d&&d.data)?d.data:(Array.isArray(d)?d:[]);})
+    .catch(function(){rows=[];})
+    .finally(function(){
+      ldg.style.display='none';appEl.style.display='block';
+      if(!verifiedEmail){
+        var f=rows.find(function(r){return r.Email&&r.Email.trim();});
+        if(f){verifiedEmail=f.Email.trim();nemail.textContent=verifiedEmail;}
+      }
+      render();
+    });
+}
+
+function render(){
+  var sorted=srt(rows.filter(function(r){return lc(r).length>0;}));
+  var name=(rows[0]&&rows[0].Name)?rows[0].Name.split(' ')[0]:'';
+  hgr.textContent=name?'Welcome back, '+name+'.':'Welcome back.';
+  hsub.textContent=sorted.length?'Last upload: '+fd(sorted[0].Date)+'. '+sorted.length+' upload'+(sorted.length===1?'':'s')+' on record.':'Upload your first lab results below to get started.';
+  if(sorted.length>=2)renderTrends(sorted);else tbox.style.display='none';
+  if(sorted.length>=1)renderLatest(sorted[0]);
+  renderHist(sorted);
+  lsec.style.display=sorted.length?'block':'none';
+  hbox.style.display='block';
+}
+
+function renderTrends(sorted){
+  tdates.textContent=fd(sorted[sorted.length-1].Date)+' - '+fd(sorted[0].Date);
+  var cols=alc(sorted),items=[];
+  cols.forEach(function(k){
+    var m=gm(k);if(!m)return;
+    var vals=sorted.map(function(r){return r[k];}).filter(function(v){return v&&(''+v).trim();});
+    if(vals.length<2)return;
+    var first=vals[vals.length-1],last=vals[0];
+    var nf=parseFloat(first),nl=parseFloat(last);
+    if(isNaN(nf)||isNaN(nl))return;
+    var st=gs(m,last),dir=tdir(first,last,m.d);
+    if(dir==='down'&&st!=='flag')items.push({cl:'down',t:'<strong>"+m.lb+"</strong> improved from "+nf+" to "+nl+" "+m.u+" - "+m.ng});
+    else if(dir==='up')items.push({cl:'up',t:'<strong>"+m.lb+"</strong> moved from "+nf+" to "+nl+" "+m.u+". "+m.nf});
+    else if(st==='good')items.push({cl:'good',t:"<strong>"+m.lb+"</strong> is holding steady at "+nl+" "+m.u+". "+m.ng});
+  });
+  if(!items.length){tbox.style.display='none';return;}
+  tbox.style.display='block';
+  titems.innerHTML=items.slice(0,6).map(function(i){return '<div class="trend-item"><div class="trend-dot '+i.cl+'"></div><div class="trend-copy">'+i.t+'</div></div>';}).join('');
+}
+
+function renderLatest(row){
+  ldate.textContent=fd(row.Date);
+  var cols=lc(row);
+  var sorted2=srt(rows.filter(function(r){return lc(r).length>0;}));
+  var prev=sorted2.length>1?sorted2[1]:null;
+  if(!cols.length){rgrid.innerHTML='<p style="font-size:13px;color:var(--text-3);grid-column:1/-1;">No values in this upload.</p>';return;}
+  rgrid.innerHTML=cols.map(function(k){
+    var raw=row[k],m=gm(k);
+    var lb=m?m.lb:k,u=m?m.u:'';
+    var st=m?gs(m,raw):'neutral';
+    var note=m?(st==='good'?m.ng:st==='watch'?m.nw:m.nf):'Value recorded.';
+    var pv=prev?prev[k]:null;
+    var arr=(m&&pv)?ta(pv,raw,m.d):'';
+    return '<div class="rc '+st+'"><div class="rc-name">'+lb+(u?' ('+u+')':'')+'</div><div class="rc-val">'+raw+'</div><div class="rc-row"><span class="rc-badge '+st+'">'+sl(st)+'</span></div><div class="rc-note">'+note+'</div>'+(m&&m.lk?'<a class="rc-link" href="'+m.lk+'" target="_blank">Learn more</a>':'')+'</div>';
+  }).join('');
+}
+
+function renderHist(sorted){
+  hcnt.textContent=sorted.length+' upload'+(sorted.length===1?'':'s');
+  if(!sorted.length){hemp.classList.remove('dn');return;}
+  hemp.classList.add('dn');
+  var cols=alc(sorted);
+  hthead.innerHTML='<tr><th>Date</th>'+cols.map(function(k){var m=gm(k);return '<th>'+(m?m.lb:k)+(m&&m.u?' <span style="font-weight:400;font-size:9px;color:var(--text-3);">'+m.u+'</span>':'')+'</th>';}).join('')+'</tr>';
+  htbody.innerHTML=sorted.map(function(row){
+    return '<tr><td>'+fd(row.Date)+'</td>'+cols.map(function(k){
+      var raw=row[k];
+      if(!raw||!(''+raw).trim())return '<td><span class="vbadge neutral">--</span></td>';
+      var m=gm(k)st=m?gs(m,raw):'neutral';
+      return '<td><span class="vbadge '+st+'">'+raw+'</span></td>';
+    }).join('')+'</tr>';
+  }).join('');
+}
+
+ uzone.addEventListener('dragover',function(e){e.preventDefault();uzone.classList.add('drag');});
+uzone.addEventListener('dragleave',function(){uzone.classList.remove('drag');});
+uzone.addEventListener('drop',function(e){e.preventDefault();uzone.classList.remove('drag');var f=e.dataTransfer.files[0];if(f)pfile(f);});
+finp.addEventListener('change',function(){if(finp.files[0])pfile(finp.files[0]);});
+
+function pfile(file){
+  uzid.style.display='none';uzspin.style.display='block';apanel.style.display='none';
+  var reader=new FileReader();
+  reader.onload=function(e){analyze(e.target.result.split(',')[1],file.type||'image/jpeg',file.type==='application/pdf');};
+  reader.readAsDataURL(file);
+}
+
+var PROMPT='Extract every lab value from this document or image. Return ONLY valid JSON, no markdown: {"extracted":{"MarkerName":"numericValue"},"positives":["good item"],"flags":[{"marker":"name","value":"val","note":"explanation","link":"URL"}],"summary":"2-3 sentence plain summary"} Use these names where they match: A1c, eGFR, LDL, HDL, Triglycerides, Glucose, Creatinine, TSH, Hemoglobin, Vitamin D, Ferritin. For any additional markers on the lab report not in that list, include them using the exact name from the report. Numeric values only. ADA guidelines. Links from ADA, Mayo Clinic, NIH only.';
+
+function analyze(b64,mt,isPDF){
+  var content=isPDF?[{type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},{type:'text',text:PROMPT}]:[{type:'image',source:{type:'base64',media_type:mt,data:b64}},{type:'text',text:PROMPT}];
+  var pm=document.querySelector('meta[name="llm-proxy-url"]');
+  if(!pm||!pm.content){done();showErr2();return;}
+  fetch(pm.content+'/anthropic',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:2000,messages:[{role:'user',content:content}]})})
+  .then(function(r){return r.json();})
+  .then(function(d){
+    var txt='';if(d.content)d.content.forEach(function(b){if(b.type==='text')txt+=b.text;});
+    try{showAnalysis(JSON.parse(txt.replace(/^```json\s*/,'').replace(/\s*```$/,'').trim()));}
+    catch(e){showErr2();}
+  })
+  .catch(showErr2)
+  .finally(done);
+}
+function done(){uzid.style.display='block';uzspin.style.display='none';}
+function showAnalysis(data){
+  pend=data;ansum.textContent=data.summary||'';
+  if(data.positives&&data.positives.length){anpl.innerHTML=data.positives.map(function(p){return '<div class="an-item"><div class="an-dot good"></div><div>'+p+'</div></div>';}).join('');anpw.style.display='block';}
+  else anpw.style.display='none';
+  if(data.flags&&data.flags.length){anfl.innerHTML=data.flags.map(function(f){return '<div class="an-item"><div class="an-dot flag"></div><div><strong>'+f.marker+(f.value?' ('+f.value+')':'')+': </strong>'+f.note+(f.link?' <a href="'+f.link+'" target="_blank">Learn more</a>':'')+'</div></div>';}).join('');anfw.style.display='block';}
+  else anfw.style.display='none';
+  apanel.style.display='block';
+}
+function showErr2(){pend=null;ansum.textContent='Could not read this file. Try a clearer image or PDF.';anpw.style.display='none';anfw.style.display='none';apanel.style.display='block';}
+
+savebtn.addEventListener('click',function(){
+  if(!pend)return;
+  if(!verifiedEmail){alert('Could not identify your account. Please refresh and log in again.');return;}
+  var meta=document.querySelector('meta[name="sheet-rows-url"]');
+  if(!meta||!meta.content){alert('Sheet endpoint not available.');return;}
+  var row={Date:td8(),Email:verifiedEmail,Name:(rows[0]&&rows[0].Name)?rows[0].Name:'',Upload_Notes:''};
+  if(pend.extracted)Object.keys(pend.extracted).forEach(function(k){row[k]=''+pend.extracted[k];});
+  savebtn.textContent='Saving...';savebtn.disabled=true;
+  fetch(meta.content,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(row)})
+  .then(function(r){if(!r.ok)throw new Error();return r.json();})
+  .then(function(){
+    savebtn.textContent='Saved!';savebtn.style.background='#1B7A54';
+    rows.unshift(Object.assign({},row));
+    setTimeout(function(){savebtn.textContent='Save to history';savebtn.disabled=false;savebtn.style.background='';apanel.style.display='none';render();},1800);
+    pend=null;
+  })
+  .catch(function(){savebtn.textContent='Save to history';savebtn.disabled=false;alert('Could not save. Try again.');});
+});
+})();
+</script>
+<script src="https://paymegpt.com/widget.js" data-widget="24385785" async></script>
+</body>
+</html>
