@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
 
 <!-- SEO Meta Tags -->
-<title>Hello World</title>
-<meta property="og:title" content="Hello World" />
+<title>Beyond Your A1c — Finally Understand Your Diabetes Labs</title>
+<meta name="description" content="Your doctor has 12 minutes. Your labs have answers. Beyond Your A1c reads your results in plain English so you stop leaving appointments confused. $7 trial access." />
+<meta property="og:title" content="Beyond Your A1c — Finally Understand Your Diabetes Labs" />
+<meta property="og:description" content="Your doctor has 12 minutes. Your labs have answers. Beyond Your A1c reads your results in plain English so you stop leaving appointments confused. $7 trial access." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Hello World" />
+<meta name="twitter:title" content="Beyond Your A1c — Finally Understand Your Diabetes Labs" />
+<meta name="twitter:description" content="Your doctor has 12 minutes. Your labs have answers. Beyond Your A1c reads your results in plain English so you stop leaving appointments confused. $7 trial access." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
-  var slug="lp-mq3uv64b-w8yhq";
+  var slug="lp-mpy5zpcz-woe4q";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
   var u=new URL(location.href);var found=null;var changed=false;
@@ -30,24 +37,59 @@
 }catch(e){}})();
 </script>
 
-<style data-gate>body{visibility:hidden;}</style>
 <script data-gate>
 (function(){
-  var slug='lp-mq3uv64b-w8yhq';var apiBase='https://paymegpt.com';var PIN_TOKEN_KEY='lp_pin_'+slug;var ACCESS_TOKEN_KEY='lp_access_'+slug;var pinPassed=false;
-  var storedToken=localStorage.getItem(PIN_TOKEN_KEY);
-  if(storedToken){try{var b64=storedToken.indexOf('.')>0?storedToken.split('.')[0]:storedToken;var decoded=atob(b64);var parts=decoded.split(':');if(parts[0]==='pin'&&parts.length>=4){var ts=parseInt(parts[parts.length-1]);if(Date.now()-ts<30*24*60*60*1000){pinPassed=true;try{sessionStorage.setItem(ACCESS_TOKEN_KEY,storedToken);}catch(e){}}}}catch(e){}}
-  var urlParams=new URLSearchParams(window.location.search);var pinToken=urlParams.get('pin_access_token');
-  if(pinToken){localStorage.setItem(PIN_TOKEN_KEY,pinToken);try{sessionStorage.setItem(ACCESS_TOKEN_KEY,pinToken);}catch(e){}var url=new URL(window.location.href);url.searchParams.delete('pin_access_token');window.history.replaceState({},'',url.toString());pinPassed=true;}
-  if(pinPassed){document.addEventListener('DOMContentLoaded',function(){document.body.style.visibility='visible';});return;}
+  var slug='lp-mpy5zpcz-woe4q';var apiBase='https://paymegpt.com';var currency='USD';var presets=[1700];var minAmt=1700;var maxAmt=1700;var thankYouMsg='You\'re in! Check your email for your dashboard link.';
+  var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
+  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
+  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
+  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
+  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
+  function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
+  function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  window.__processDonation=function(a,b,c,d){
+    var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
+      email=a.email||'';
+      productName=a.productName||a.label||'';
+      productDescription=a.productDescription||a.description||'';
+      donorName=a.name||a.donorName||'';
+      donorMessage=a.message||a.donorMessage||'';
+      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
+    }else{
+      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
+      var rest=[b,c,d];var nonEmail=[];
+      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
+      donorName=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
+    }
+    if(!email)email=findDonEmail();
+    if(!donorName)donorName=findDonName();
+    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:donorName||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||t('failed'));throw new Error(d.error);}
+    });
+  };
+  window.__donationConfig={currency:currency,presets:presets.map(function(c){return c/100;}),minAmount:minAmt/100,maxAmount:maxAmt/100,formatAmount:fmtD};
   document.addEventListener('DOMContentLoaded',function(){
-  var currentMethod='sms';var currentIdentifier='';
-  var gateHtml='<div id="pin-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:16px;"><div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;"><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Identity Verification</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Please verify your identity to access this page.</p><form id="pin-request-form"><input type="tel" id="pin-identifier" placeholder="Enter your phone number" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" /><div id="pin-req-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="pin-send-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Send Verification Code</button></form><form id="pin-verify-form" style="display:none;"><p id="pin-sent-msg" style="font-size:14px;color:#6b7280;margin-bottom:12px;"></p><input type="text" id="pin-code" placeholder="Enter 6-digit PIN" maxlength="6" style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:20px;text-align:center;letter-spacing:8px;font-family:monospace;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" required /><div id="pin-ver-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="pin-verify-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Verify PIN</button><button type="button" id="pin-resend-btn" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:#6b7280;cursor:pointer;font-size:14px;">Resend PIN</button><button type="button" id="pin-back-btn" style="width:100%;padding:8px;background:none;border:none;color:#9ca3af;cursor:pointer;font-size:14px;">Use different contact</button></form></div></div>';
-  document.body.insertAdjacentHTML('beforeend',gateHtml);document.body.style.visibility='visible';
-  var reqForm=document.getElementById('pin-request-form');var verForm=document.getElementById('pin-verify-form');var idInput=document.getElementById('pin-identifier');var codeInput=document.getElementById('pin-code');var sendBtn=document.getElementById('pin-send-btn');var verifyBtn=document.getElementById('pin-verify-btn');var reqError=document.getElementById('pin-req-error');var verError=document.getElementById('pin-ver-error');var sentMsg=document.getElementById('pin-sent-msg');
-  
-  function sendPin(){var id=idInput.value.trim();if(!id)return;sendBtn.disabled=true;sendBtn.textContent='Sending...';reqError.style.display='none';var body=currentMethod==='sms'?{phone:id}:{email:id};fetch(apiBase+'/api/landing-pages/public/'+slug+'/generate-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.success){currentIdentifier=id;reqForm.style.display='none';verForm.style.display='block';sentMsg.textContent='We sent a 6-digit PIN to '+id;codeInput.focus();}else{reqError.textContent=d.message||'Failed to send PIN';reqError.style.display='block';}}).catch(function(){reqError.textContent='Failed to send PIN';reqError.style.display='block';}).finally(function(){sendBtn.disabled=false;sendBtn.textContent='Send Verification Code';});}
-  function verifyPin(){var pin=codeInput.value.trim();if(!pin||pin.length!==6){verError.textContent='Please enter the 6-digit PIN';verError.style.display='block';return;}verifyBtn.disabled=true;verifyBtn.textContent='Verifying...';verError.style.display='none';var body=currentMethod==='sms'?{phone:currentIdentifier,pin:pin}:{email:currentIdentifier,pin:pin};fetch(apiBase+'/api/landing-pages/public/'+slug+'/verify-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.verified){localStorage.setItem(PIN_TOKEN_KEY,d.accessToken);try{sessionStorage.setItem('lp_access_'+slug,d.accessToken);}catch(e){}window.location.reload();}else{verError.textContent=d.message||'Invalid PIN code';verError.style.display='block';}}).catch(function(){verError.textContent='Failed to verify PIN';verError.style.display='block';}).finally(function(){verifyBtn.disabled=false;verifyBtn.textContent='Verify PIN';});}
-  reqForm.addEventListener('submit',function(e){e.preventDefault();sendPin();});verForm.addEventListener('submit',function(e){e.preventDefault();verifyPin();});document.getElementById('pin-resend-btn').addEventListener('click',sendPin);document.getElementById('pin-back-btn').addEventListener('click',function(){verForm.style.display='none';reqForm.style.display='block';codeInput.value='';verError.style.display='none';});codeInput.addEventListener('input',function(e){e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6);});idInput.focus();
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var dBtn=document.getElementById('lp-don-success-btn');
+      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
   });
 })();
 </script>
@@ -150,7 +192,7 @@
   function run(){
     if(contactId){
       var xhr=new XMLHttpRequest();
-      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4612');
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4525');
       xhr.onload=function(){
         if(xhr.status===200){
           try{
@@ -177,7 +219,7 @@
 </script>
 <script data-payment>
 (function(){
-  var slug='QVahmJeXp';
+  var slug='2kRmtQ';
   var apiBase='https://paymegpt.com';
   var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
   function findEmail(){
@@ -237,6 +279,135 @@
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, <span>World</span> 👋</h1>
+
+<nav class="nav" data-section="navbar">
+  <div class="nav-logo">Beyond Your A1c</div>
+  <button class="nav-btn" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">Get Access — $7</button>
+</nav>
+
+<section class="hero" data-section="hero">
+  <div class="hero-tag"><span class="hero-tag-dot"></span>For people managing diabetes</div>
+  <h1>You deserve to understand<br><em>your own body.</em></h1>
+  <p class="hero-sub">Your labs come back full of numbers. Nobody explains them. Beyond Your A1c does — in plain English, every time.</p>
+  <div class="hero-actions">
+    <button class="hero-cta" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">Get access — $7</button>
+    <span class="hero-cta-note">One-time payment. No subscription. Yours forever.</span>
+  </div>
+</section>
+
+<div class="proof-strip">
+  <p>Reads any lab PDF or photo &nbsp;&middot;&nbsp; Tracks 11 key diabetes markers &nbsp;&middot;&nbsp; <strong>Compares to ADA guidelines</strong> &nbsp;&middot;&nbsp; Trend history across every visit</p>
+</div>
+
+<section class="pain" data-section="pain">
+  <div class="pain-inner">
+    <div class="section-eyebrow">The problem</div>
+    <h2>Your doctor has 12 minutes.<br><em>Your labs have answers.</em></h2>
+    <div class="pain-body">
+      <p>You get your results. A wall of numbers, some flagged red, some not. Your doctor glances at the A1c, says something about diet, and the appointment is over. You leave with the same piece of paper and zero new understanding.</p>
+      <p>Meanwhile your eGFR is doing something. Your triglycerides are moving. Your Vitamin D has been low three visits in a row. <strong>These numbers are telling you something — and nobody is helping you hear it.</strong></p>
+    </div>
+    <div class="bigquote">
+      <p>"I've been diabetic for years. I never actually understood my labs until I started tracking them myself."</p>
+    </div>
+    <div class="pain-body">
+      <p>You're not asking for a diagnosis. You just want to understand what's happening in your own body — and walk into your next appointment knowing what questions to ask.</p>
+      <p>That's exactly what Beyond Your A1c is built for.</p>
+    </div>
+  </div>
+</section>
+
+<section class="demo" data-section="features">
+  <div class="demo-inner">
+    <div class="demo-eyebrow">What you'll see</div>
+    <h2>Your labs, finally legible.</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <div class="demo-card-label">Latest results — Feb 2026</div>
+        <div class="marker-row"><div class="marker-left"><span class="marker-name">A1c</span><span class="marker-context">3-month avg blood sugar</span></div><div class="marker-right"><span class="marker-val">7.4%</span><span class="badge badge-watch">Watch</span></div></div>
+        <div class="marker-row"><div class="marker-left"><span class="marker-name">eGFR</span><span class="marker-context">Kidney function</span></div><div class="marker-right"><span class="marker-val">74</span><span class="badge badge-good">Good</span></div></div>
+        <div class="marker-row"><div class="marker-left"><span class="marker-name">Triglycerides</span><span class="marker-context">Linked to blood sugar</span></div><div class="marker-right"><span class="marker-val">198</span><span class="badge badge-watch">Watch</span></div></div>
+        <div class="marker-row"><div class="marker-left"><span class="marker-name">Vitamin D</span><span class="marker-context">Common deficiency</span></div><div class="marker-right"><span class="marker-val">26</span><span class="badge badge-flag">Flagged</span></div></div>
+        <div class="marker-row"><div class="marker-left"><span class="marker-name">HDL</span><span class="marker-context">Protective cholesterol</span></div><div class="marker-right"><span class="marker-val">51</span><span class="badge badge-good">Good</span></div></div>
+      </div>
+      <div class="trend-card">
+        <div class="demo-card-label">What your results show — Aug 2025 to Feb 2026</div>
+        <div class="trend-item"><div class="trend-dot down"></div><div class="trend-text"><strong>A1c improved</strong> from 8.3 to 7.4% — moving in the right direction. Keep going.</div></div>
+        <div class="trend-item"><div class="trend-dot hold"></div><div class="trend-text"><strong>eGFR holding steady</strong> at 74 mL/min — kidney function in normal range.</div></div>
+        <div class="trend-item"><div class="trend-dot up"></div><div class="trend-text"><strong>Triglycerides elevated</strong> at 198 mg/dL — still above target. Worth discussing.</div></div>
+        <div class="trend-item"><div class="trend-dot up"></div><div class="trend-text"><strong>Vitamin D still low</strong> at 26 ng/mL — flagged three visits in a row. Bring this up.</div></div>
+        <div class="trend-item"><div class="trend-dot down"></div><div class="trend-text"><strong>HDL improving</strong> — protective cholesterol up to 51. Good news.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" data-section="how-it-works">
+  <div class="how-inner">
+    <div class="section-eyebrow">How it works</div>
+    <h2>Upload. Understand. Track.</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><h3>Upload your labs</h3><p>PDF or photo from your lab portal, your doctor's office, anywhere. Our AI reads it automatically — no manual entry.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Get plain English</h3><p>Every marker explained. Compared to ADA guidelines. Flagged if it needs attention. Linked to trusted sources like Mayo Clinic and NIH.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Watch your trends</h3><p>Upload from any date — past or present. Your history builds automatically. See what's improving, what's stuck, what to bring up next visit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="forwho" data-section="benefits">
+  <div class="forwho-inner">
+    <div class="section-eyebrow">Who it's for</div>
+    <h2>This is for you if you're tired of<br>being managed instead of informed.</h2>
+    <ul class="check-list">
+      <li><div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2"/></svg></div><span>You have Type 1 or Type 2 diabetes and want to actually understand your bloodwork — not just nod along at appointments</span></li>
+      <li><div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2"/></svg></div><span>You're prediabetic and watching whether your numbers are moving in the right direction</span></li>
+      <li><div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2"/></svg></div><span>You leave doctor appointments with more questions than answers and nowhere to go with them</span></li>
+      <li><div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2"/></svg></div><span>You care about your kidneys, your heart, your thyroid — not just the one number your doctor talks about</span></li>
+      <li><div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="1,6 4.5,9.5 11,2"/></svg></div><span>You want to walk into your next appointment feeling like someone who knows their own body</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="offer" id="offer" data-section="pricing">
+  <div class="offer-inner">
+    <div class="offer-eyebrow">Get access today</div>
+    <h2>Pay once. Use it forever.</h2>
+    <div class="price-block">
+      <div class="price-num"><span class="price-sup">$</span>7</div>
+      <div class="price-note">One-time · No subscription · No expiry</div>
+    </div>
+    <ul class="offer-list">
+      <li>Unlimited lab uploads — PDF or photo</li>
+      <li>AI reads 11 key diabetes markers instantly</li>
+      <li>Plain-language analysis every time</li>
+      <li>Trend tracking across all your visits</li>
+      <li>Your data is private — filtered to you only</li>
+      <li>Works on any device, fully mobile-optimized</li>
+    </ul>
+    <div class="checkout-fields">
+      <input type="text" id="name" placeholder="Your full name" required autocomplete="name"/>
+      <input type="email" id="email" placeholder="Your email address" required autocomplete="email"/>
+    </div>
+    <button class="offer-cta" onclick="handleCheckout()">Get Lifetime Access — $7</button>
+    <div class="offer-fine">Secure checkout via Stripe. Receipt sent to your email.<br>This tool provides health information only — not medical advice.</div>
+  </div>
+</section>
+
+<section class="disc" data-section="disclaimer">
+  <div class="disc-inner">
+    <p><strong style="color:rgba(255,255,255,0.4);">Important:</strong> Beyond Your A1c is an informational tool only. It does not provide medical advice, diagnosis, or treatment recommendations. Always discuss your results and any changes to your care plan with your doctor, endocrinologist, or certified diabetes educator.</p>
+  </div>
+</section>
+
+<footer class="footer" data-section="footer">
+  <div class="footer-logo">Beyond Your A1c</div>
+  <div class="footer-copy">&copy; 2026 &middot; Not medical advice</div>
+</footer>
+
+<script src="https://paymegpt.com/widget.js" data-widget="51850757" async></script>
+
+
+
+  <script src="script.js"></script>
 </body>
 </html>
