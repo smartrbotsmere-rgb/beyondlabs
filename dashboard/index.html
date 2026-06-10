@@ -80,7 +80,7 @@
     '<div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;">' +
     '<h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Identity Verification</h2>' +
     '<p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Please verify your identity to access this page.</p>' +
-    '<div style="display:flex;gap:8px;margin-bottom:16px;"><button type="button" id="btn-email-method" style="flex:1;padding:8px 16px;border-radius:8px;font-weight:500;border:none;cursor:pointer;background:#2563eb;color:white;">Email</button><button type="button" id="btn-sms-method" style="flex:1;padding:8px 16px;border-radius:8px;font-weight:500;border:1px solid #d1d5db;cursor:pointer;background:white;color:#374151;">SMS</button></div>' +
+    '' +
     '<form id="pin-request-form">' +
     '<input type="email" id="pin-identifier" placeholder="Enter your email address" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" />' +
     '<div id="pin-req-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div>' +
@@ -105,11 +105,6 @@
   var reqError=document.getElementById('pin-req-error');
   var verError=document.getElementById('pin-ver-error');
   var sentMsg=document.getElementById('pin-sent-msg');
-  
-  var emailBtn=document.getElementById('btn-email-method');
-  var smsBtn=document.getElementById('btn-sms-method');
-  emailBtn.addEventListener('click',function(){currentMethod='email';emailBtn.style.background='#2563eb';emailBtn.style.color='white';emailBtn.style.border='none';smsBtn.style.background='white';smsBtn.style.color='#374151';smsBtn.style.border='1px solid #d1d5db';idInput.type='email';idInput.placeholder='Enter your email address';});
-  smsBtn.addEventListener('click',function(){currentMethod='sms';smsBtn.style.background='#2563eb';smsBtn.style.color='white';smsBtn.style.border='none';emailBtn.style.background='white';emailBtn.style.color='#374151';emailBtn.style.border='1px solid #d1d5db';idInput.type='tel';idInput.placeholder='Enter your phone number';});
   
   function sendPin(){
     var id=idInput.value.trim();if(!id)return;
@@ -143,6 +138,63 @@
   document.getElementById('pin-back-btn').addEventListener('click',function(){verForm.style.display='none';reqForm.style.display='block';codeInput.value='';verError.style.display='none';});
   codeInput.addEventListener('input',function(e){e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6);});
   idInput.focus();
+  });
+})();
+</script>
+<style data-gate>body{visibility:hidden;}</style>
+<script data-gate>
+(function(){
+  var slug='lp-mpy5ovz5-lqmzm';
+  var apiBase='https://paymegpt.com';
+  var AL_TOKEN_KEY='lp_al_'+slug;
+  var ACCESS_TOKEN_KEY='lp_access_'+slug;
+  var alPassed=false;
+  var storedToken=localStorage.getItem(AL_TOKEN_KEY);
+  if(storedToken){
+    try{
+      var b64=storedToken.indexOf('.')>0?storedToken.split('.')[0]:storedToken;
+      var parts=atob(b64).split(':');
+      if(parts.length>=2){
+        var ts=parseInt(parts[parts.length-1]);
+        if(Date.now()-ts<30*24*60*60*1000){
+          alPassed=true;
+          try{sessionStorage.setItem(ACCESS_TOKEN_KEY,storedToken);}catch(e){}
+        }
+      }
+    }catch(e){}
+  }
+  if(alPassed){document.addEventListener('DOMContentLoaded',function(){document.body.style.visibility='visible';});return;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var gateHtml='<div id="allowlist-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:16px;">'+
+      '<div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;">'+
+      '<div style="width:64px;height:64px;border-radius:50%;background:#f0f4ff;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>'+
+      '<h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Access Restricted</h2>'+
+      '<p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Enter your email to verify access.</p>'+
+      '<form id="al-form">'+
+      '<input type="email" id="al-email" placeholder="you@example.com" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" />'+
+      '<div id="al-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div>'+
+      '<button type="submit" id="al-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Verify Access</button>'+
+      '</form></div></div>';
+    document.body.insertAdjacentHTML('beforeend',gateHtml);
+    document.body.style.visibility='visible';
+    var alForm=document.getElementById('al-form');
+    var alEmail=document.getElementById('al-email');
+    var alBtn=document.getElementById('al-btn');
+    var alError=document.getElementById('al-error');
+    alForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=alEmail.value.trim();if(!email)return;
+      alBtn.disabled=true;alBtn.textContent='Verifying...';alError.style.display='none';
+      fetch(apiBase+'/api/landing-pages/public/'+slug+'/verify-allowlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
+      .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
+      .then(function(res){
+        if(res.data.allowed){localStorage.setItem(AL_TOKEN_KEY,res.data.accessToken);try{sessionStorage.setItem('lp_access_'+slug,res.data.accessToken);}catch(e){}document.getElementById('allowlist-gate').remove();}
+        else{alError.textContent=res.data.message||'Email not authorized';alError.style.display='block';}
+      })
+      .catch(function(){alError.textContent='Verification failed. Please try again.';alError.style.display='block';})
+      .finally(function(){alBtn.disabled=false;alBtn.textContent='Verify Access';});
+    });
+    alEmail.focus();
   });
 })();
 </script>
