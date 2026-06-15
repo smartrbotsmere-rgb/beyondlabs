@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://beyondyoura1c.com/dashboard/</loc>
+    <lastmod>2026-06-15T18:27:56.850Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://beyondyoura1c.com/</loc>
     <lastmod>2026-06-15T18:27:51.340Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -8,11 +13,6 @@
   <url>
     <loc>https://beyondyoura1c.com/</loc>
     <lastmod>2026-06-15T18:27:46.362Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://beyondyoura1c.com/dashboard/</loc>
-    <lastmod>2026-06-15T18:26:29.965Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
