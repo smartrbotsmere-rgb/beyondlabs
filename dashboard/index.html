@@ -450,7 +450,7 @@ if(!SHEET_URL){
 
 function render(){
   var sorted=srt(rows.filter(function(r){return lc(r).length>0;}));
-  var name=(rows[0]&&rows[0].Name)?rows[0].Name.split(' ')[0]:'';
+  var name=(rows[0]&&rows[0].Name)?rows[0].Name.split(' ')[0]:(verifiedEmail?verifiedEmail.split('@')[0]:'');
   hgr.textContent=name?'Welcome back, '+name+'.':'Welcome back.';
   hsub.textContent=sorted.length?'Last upload: '+fd(sorted[0].Date)+'. '+sorted.length+' upload'+(sorted.length===1?'':'s')+' on record.':'Upload your first lab results below to get started.';
   if(sorted.length>=2){renderTrends(sorted);}else{tbox.style.display='none';}
@@ -492,11 +492,10 @@ function renderLatest(row){
   var cols=lc(row);
   rgrid.innerHTML=cols.map(function(k){
     var m=gm(k),val=row[k],st=m?gs(m,val):'neutral';
-    var arrow='';
     return '<div class="rc '+st+'">'+
       '<div class="rc-name">'+(m?m.lb:k)+'</div>'+
       '<div class="rc-val">'+val+(m&&m.u?'<span style="font-size:12px;color:var(--text-3);margin-left:2px;">'+m.u+'</span>':'')+'</div>'+
-      '<div class="rc-row"><span class="rc-badge '+st+'">'+sl(st)+'</span><span class="rc-arrow">'+arrow+'</span></div>'+
+      '<div class="rc-row"><span class="rc-badge '+st+'">'+sl(st)+'</span></div>'+
       (m&&m.ng?'<div class="rc-note">'+(st==='good'?m.ng:st==='watch'?m.nw:m.nf)+'</div>':'')+
       (m&&m.lk?'<a class="rc-link" href="'+m.lk+'" target="_blank">Learn more</a>':'')+
       '</div>';
@@ -536,15 +535,17 @@ var PROMPT='Extract every lab value from this document or image. Return ONLY val
 function analyze(b64,mt,isPDF){
   var content=isPDF?[{type:'document',source:{type:'base64',media_type:'application/pdf',data:b64}},{type:'text',text:PROMPT}]:[{type:'image',source:{type:'base64',media_type:mt,data:b64}},{type:'text',text:PROMPT}];
   var pm=document.querySelector('meta[name="llm-proxy-url"]');
-  if(!pm||!pm.content){done();showErr2();return;}
-  fetch(pm.content+'/anthropic',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:2000,messages:[{role:'user',content:content}]})})
-  .then(function(r){return r.json();})
+  if(!pm||!pm.content){done();showErr2('no-proxy');return;}
+  fetch(pm.content+'/anthropic',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:2000,messages:[{role:'user',content:content}]})})
+  .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
   .then(function(d){
+    if(d.error){throw new Error(d.error.message||'API error');}
     var txt='';if(d.content)d.content.forEach(function(b){if(b.type==='text')txt+=b.text;});
+    if(!txt){throw new Error('empty response');}
     try{showAnalysis(JSON.parse(txt.replace(/^```json\s*/,'').replace(/\s*```$/,'').trim()));}
-    catch(e){showErr2();}
+    catch(e){showErr2('parse');}
   })
-  .catch(showErr2)
+  .catch(function(e){showErr2('fetch');})
   .finally(done);
 }
 function done(){uzid.style.display='block';uzspin.style.display='none';}
@@ -556,7 +557,7 @@ function showAnalysis(data){
   else anfw.style.display='none';
   apanel.style.display='block';
 }
-function showErr2(){pend=null;ansum.textContent='Could not read this file. Try a clearer image or PDF.';anpw.style.display='none';anfw.style.display='none';apanel.style.display='block';}
+function showErr2(reason){pend=null;ansum.textContent='Could not read this file. Try a clearer image or PDF. ('+( reason||'unknown')+')';anpw.style.display='none';anfw.style.display='none';apanel.style.display='block';}
 
 savebtn.addEventListener('click',function(){
   if(!pend)return;
