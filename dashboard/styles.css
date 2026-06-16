@@ -81,6 +81,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .res-mark{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;}
 .res-name{font-size:12px;font-weight:600;color:var(--ink);}
 .res-desc{font-size:11px;color:var(--text-3);}
+.feedback-card{background:var(--green-lt);border:1px solid #BFE3D3;border-radius:var(--radius);padding:16px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px;}
+.feedback-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.feedback-copy{font-size:13px;line-height:1.6;color:var(--text-2);}
+.feedback-copy strong{color:var(--ink);}
+.feedback-copy a{color:var(--green);font-weight:600;text-decoration:none;}
 .page-footer{font-size:11px;color:var(--text-3);text-align:center;line-height:1.6;}
 .dn{display:none!important;}
 .mt{margin-top:16px;}
