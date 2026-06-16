@@ -380,13 +380,17 @@
       <div class="hist-scroll"><table class="hist-table"><thead id="hist-thead"></thead><tbody id="hist-tbody"></tbody></table></div>
       <div class="empty-p dn" id="hist-empty">No history yet - upload your first results above.</div>
     </div>
+    <div class="feedback-card">
+      <div class="feedback-icon">&#128172;</div>
+      <div class="feedback-copy"><strong>We're improving Beyond Your A1c all the time.</strong> Spotted a bug or have a suggestion? Email us at <a href="mailto:admin@beyondyoura1c.com">admin@beyondyoura1c.com</a> — we read every message.</div>
+    </div>
     <div class="section-title mt" style="margin-bottom:10px;">Trusted Resources</div>
     <div class="res-grid">
       <a class="res-card" href="https://www.diabetes.org/diabetes/a1c" target="_blank"><div class="res-mark" style="background:var(--green-mid);">ADA</div><div><div class="res-name">American Diabetes Assoc.</div><div class="res-desc">A1c goals &amp; care</div></div></a>
       <a class="res-card" href="https://www.mayoclinic.org/tests-procedures/a1c-test/about/pac-20384643" target="_blank"><div class="res-mark" style="background:#2B5A8C;">Mayo</div><div><div class="res-name">Mayo Clinic</div><div class="res-desc">A1c explained</div></div></a>
       <a class="res-card" href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis/a1c-test" target="_blank"><div class="res-mark" style="background:#1A4E6B;">NIH</div><div><div class="res-name">NIH / NIDDK</div><div class="res-desc">Diabetes research</div></div></a>
     </div>
-    <div class="page-footer">Beyond Your A1c is an informational tool only. It does not provide medical advice or treatment recommendations. Always consult your doctor before making any changes to your care.</div>
+    <div class="page-footer">Beyond Your A1c is an informational tool only. It does not provide medical advice or treatment recommendations. Always consult your doctor before making any changes to your care.<br>Questions, bugs, or ideas: <a href="mailto:admin@beyondyoura1c.com" style="color:var(--text-3);">admin@beyondyoura1c.com</a></div>
   </div>
 </div>
 <script>
@@ -541,7 +545,8 @@ function analyze(b64,mt,isPDF){
   .then(function(r){return r.json();})
   .then(function(d){
     var txt='';if(d.content)d.content.forEach(function(b){if(b.type==='text')txt+=b.text;});
-    try{showAnalysis(JSON.parse(txt.replace(/^```json\s*/,'').replace(/\s*```$/,'').trim()));}
+    var m=txt.match(/\{[\s\S]*\}/);
+    try{showAnalysis(JSON.parse(m?m[0]:txt));}
     catch(e){showErr2();}
   })
   .catch(showErr2)
