@@ -91,9 +91,3 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .mt{margin-top:16px;}
 .empty-p{padding:24px;text-align:center;font-size:13px;color:var(--text-3);}
 .debug-line{font-size:11px;color:var(--red);background:var(--red-lt);border-radius:8px;padding:8px 10px;margin-top:10px;font-family:monospace;word-break:break-word;display:none;}
-
-#app {
-      --green: #042069;
-      --green-lt: #E6F0FF;
-      --green-mid: #042069;
-    }
