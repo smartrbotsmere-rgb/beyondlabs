@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
 
 
@@ -20,14 +22,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
 <!-- End SEO Meta Tags -->
-<meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4948/sheet-data">
-<meta name="sheet-rows-url" content="https://paymegpt.com/api/public/landing-pages/4948/sheet-rows">
+<meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-data">
+<meta name="sheet-rows-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-rows">
 <meta name="sheet-writes-enabled" content="true">
 <meta name="sheet-allow-create" content="true">
 <meta name="sheet-allow-delete" content="false">
 <script data-lp-token-hydrate>
 (function(){try{
-  var slug="lp-mpy5ovz5-lqmzm-copy-1781600402134";
+  var slug="lp-mpy5ovz5-lqmzm";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
   var u=new URL(location.href);var found=null;var changed=false;
@@ -42,14 +44,14 @@
 }catch(e){}})();
 </script>
 
-<meta name="llm-proxy-url" content="https://paymegpt.com/api/landing-pages/public/lp-mpy5ovz5-lqmzm-copy-1781600402134/llm">
+<meta name="llm-proxy-url" content="https://paymegpt.com/api/landing-pages/public/lp-mpy5ovz5-lqmzm/llm">
 <meta name="llm-providers" content="anthropic">
 <meta name="llm-gate-required" content="true">
 
 <style data-gate>body{visibility:hidden;}</style>
 <script data-gate>
 (function(){
-  var slug='lp-mpy5ovz5-lqmzm-copy-1781600402134';
+  var slug='lp-mpy5ovz5-lqmzm';
   var apiBase='https://paymegpt.com';
   var PIN_TOKEN_KEY='lp_pin_'+slug;
   var ACCESS_TOKEN_KEY='lp_access_'+slug;
@@ -247,7 +249,7 @@
   function run(){
     if(contactId){
       var xhr=new XMLHttpRequest();
-      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4948');
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4523');
       xhr.onload=function(){
         if(xhr.status===200){
           try{
@@ -274,7 +276,7 @@
 </script>
 <script data-payment>
 (function(){
-  var slug='NSsqwLYK8';
+  var slug='zfySufi';
   var apiBase='https://paymegpt.com';
   var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
   function findEmail(){
@@ -338,7 +340,7 @@
 </script>
 <script data-cart>
 (function(){
-  var slug='NSsqwLYK8';
+  var slug='zfySufi';
   var apiBase='https://paymegpt.com';
   var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
   function findCartEmail(){
@@ -471,6 +473,11 @@
       <div class="hist-scroll"><table class="hist-table"><thead id="hist-thead"></thead><tbody id="hist-tbody"></tbody></table></div>
       <div class="empty-p dn" id="hist-empty">No history yet - upload your first results above.</div>
     </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(15,30,46,0.07);">
+      <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;">A few things to know</div>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:10px;">&#128200; <strong>Trend lines</strong> appear on each result card after you have 3 or more uploads on record — they need enough data points to be meaningful.</p>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.6;">&#128465; <strong>Uploaded a duplicate?</strong> Email <a href="mailto:admin@beyondyoura1c.com" style="color:var(--green-mid);font-weight:500;">admin@beyondyoura1c.com</a> with your name, email address, and the date of the duplicate upload and we'll remove it.</p>
+    </div>
     <div class="feedback-card">
       <div class="feedback-icon">&#128172;</div>
       <div class="feedback-copy"><strong>We're improving Beyond Your A1c all the time.</strong> Spotted a bug or have a suggestion? Email us at <a href="mailto:admin@beyondyoura1c.com">admin@beyondyoura1c.com</a> — we read every message.</div>
@@ -577,7 +584,7 @@ function render(){
   hgr.textContent=name?'Welcome back, '+name+'.':'Welcome back.';
   hsub.textContent=sorted.length?'Last upload: '+fd(sorted[0].Date)+'. '+sorted.length+' upload'+(sorted.length===1?'':'s')+' on record.':'Upload your first lab results below to get started.';
   if(sorted.length>=2){renderTrends(sorted);}else{tbox.style.display='none';}
-  if(sorted.length>=1){renderLatest(sorted[0]);}
+  if(sorted.length>=1){renderLatest(sorted[0], sorted);}
   renderHist(sorted);
   lsec.style.display=sorted.length?'block':'none';
   hbox.style.display='block';
@@ -610,20 +617,56 @@ function renderTrends(sorted){
   }).join('');
 }
 
-function renderLatest(row){
+function renderLatest(row, sorted){
   ldate.textContent=fd(row.Date);
   var cols=lc(row);
   rgrid.innerHTML=cols.map(function(k){
     var m=gm(k),val=row[k],st=m?gs(m,val):'neutral';
-    var arrow='';
+    var svg=makeSVG(k,sorted,st);
     return '<div class="rc '+st+'">'+
       '<div class="rc-name">'+(m?m.lb:k)+'</div>'+
       '<div class="rc-val">'+val+(m&&m.u?'<span style="font-size:12px;color:var(--text-3);margin-left:2px;">'+m.u+'</span>':'')+'</div>'+
-      '<div class="rc-row"><span class="rc-badge '+st+'">'+sl(st)+'</span><span class="rc-arrow">'+arrow+'</span></div>'+
+      '<div class="rc-row"><span class="rc-badge '+st+'">'+sl(st)+'</span></div>'+
       (m&&m.ng?'<div class="rc-note">'+(st==='good'?m.ng:st==='watch'?m.nw:m.nf)+'</div>':'')+
+      svg+
       (m&&m.lk?'<a class="rc-link" href="'+m.lk+'" target="_blank">Learn more</a>':'')+
       '</div>';
   }).join('');
+}
+
+function makeSVG(markerKey, sorted, st){
+  var vals=[];
+  sorted.slice().reverse().forEach(function(r){
+    var v=r[markerKey];
+    if(v===undefined||v===null||v===''){
+      var lk=markerKey.toLowerCase();
+      var rk=Object.keys(r).find(function(k){return k.toLowerCase()===lk;});
+      v=rk?r[rk]:null;
+    }
+    var n=parseFloat(v);
+    if(!isNaN(n)) vals.push(n);
+  });
+  if(vals.length<3) return '';
+  var W=200,H=36,PAD=4;
+  var mn=Math.min.apply(null,vals);
+  var mx=Math.max.apply(null,vals);
+  var rng=mx-mn;
+  var pts=vals.map(function(v,i){
+    var x=(vals.length===1)?W/2:(i/(vals.length-1))*W;
+    var y=(rng===0)?(H/2):(H-PAD-((v-mn)/rng)*(H-PAD*2));
+    return x.toFixed(1)+','+y.toFixed(1);
+  });
+  var last=pts[pts.length-1].split(',');
+  var first=pts[0].split(',');
+  var poly=pts.join(' ');
+  var areaPoints=first[0]+','+(H)+' '+poly+' '+last[0]+','+(H);
+  var color=st==='good'?'#2389DA':st==='watch'?'#F59E0B':'#B91C1C';
+  var fill=st==='good'?'rgba(35,137,218,0.10)':st==='watch'?'rgba(245,158,11,0.12)':'rgba(185,28,28,0.12)';
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" preserveAspectRatio="none" style="display:block;margin-top:10px;">'+
+    '<polygon points="'+areaPoints+'" fill="'+fill+'"/>'+
+    '<polyline points="'+poly+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
+    '<circle cx="'+last[0]+'" cy="'+last[1]+'" r="3" fill="'+color+'"/>'+
+    '</svg>';
 }
 
 function renderHist(sorted){
@@ -704,7 +747,7 @@ function isValidISODate(s){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;
   var d=new Date(s+'T00:00:00');
   if(isNaN(d.getTime()))return false;
-  if(d.getTime()>Date.now()+86400000)return false; // reject dates more than 1 day in the future
+  if(d.getTime()>Date.now()+86400000)return false;
   return true;
 }
 function showAnalysis(data){
