@@ -17,10 +17,10 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Beyond Your A1c" />
 <meta name="twitter:description" content="A simple stub page for tracking lab results and glucose trends beyond A1c." />
-<link rel="icon" href="https://paymegpt.com/api/landing-pages/images/landing-page-images%2F0%2F1781591114849_blob.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="https://paymegpt.com/api/landing-pages/images/landing-page-images%2F0%2F1781591114849_blob.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="https://paymegpt.com/api/landing-pages/images/landing-page-images%2F0%2F1781591114849_blob.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://paymegpt.com/api/landing-pages/images/landing-page-images%2F0%2F1781591114849_blob.png" />
+<link rel="icon" href="favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
 <!-- End SEO Meta Tags -->
 <meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-data">
 <meta name="sheet-rows-url" content="https://paymegpt.com/api/public/landing-pages/4523/sheet-rows">
@@ -44,42 +44,193 @@
 }catch(e){}})();
 </script>
 
+<meta name="llm-proxy-url" content="https://paymegpt.com/api/landing-pages/public/lp-mpy5ovz5-lqmzm/llm">
+<meta name="llm-providers" content="anthropic">
+<meta name="llm-gate-required" content="true">
+
 <style data-gate>body{visibility:hidden;}</style>
 <script data-gate>
 (function(){
-  var slug='lp-mpy5ovz5-lqmzm';var apiBase='https://paymegpt.com';var PIN_TOKEN_KEY='lp_pin_'+slug;var ACCESS_TOKEN_KEY='lp_access_'+slug;var pinPassed=false;
+  var slug='lp-mpy5ovz5-lqmzm';
+  var apiBase='https://paymegpt.com';
+  var PIN_TOKEN_KEY='lp_pin_'+slug;
+  var ACCESS_TOKEN_KEY='lp_access_'+slug;
+  var pinPassed=false;
   var storedToken=localStorage.getItem(PIN_TOKEN_KEY);
-  if(storedToken){try{var b64=storedToken.indexOf('.')>0?storedToken.split('.')[0]:storedToken;var decoded=atob(b64);var parts=decoded.split(':');if(parts[0]==='pin'&&parts.length>=4){var ts=parseInt(parts[parts.length-1]);if(Date.now()-ts<30*24*60*60*1000){pinPassed=true;try{sessionStorage.setItem(ACCESS_TOKEN_KEY,storedToken);}catch(e){}}}}catch(e){}}
-  var urlParams=new URLSearchParams(window.location.search);var pinToken=urlParams.get('pin_access_token');
-  if(pinToken){localStorage.setItem(PIN_TOKEN_KEY,pinToken);try{sessionStorage.setItem(ACCESS_TOKEN_KEY,pinToken);}catch(e){}var url=new URL(window.location.href);url.searchParams.delete('pin_access_token');window.history.replaceState({},'',url.toString());pinPassed=true;}
+  if(storedToken){
+    try{
+      var b64=storedToken.indexOf('.')>0?storedToken.split('.')[0]:storedToken;
+      var decoded=atob(b64);
+      var parts=decoded.split(':');
+      if(parts[0]==='pin'&&parts.length>=4){
+        var ts=parseInt(parts[parts.length-1]);
+        if(Date.now()-ts<30*24*60*60*1000){
+          pinPassed=true;
+          try{sessionStorage.setItem(ACCESS_TOKEN_KEY,storedToken);}catch(e){}
+        }
+      }
+    }catch(e){}
+  }
+  var urlParams=new URLSearchParams(window.location.search);
+  var pinToken=urlParams.get('pin_access_token');
+  if(pinToken){
+    localStorage.setItem(PIN_TOKEN_KEY,pinToken);
+    try{sessionStorage.setItem(ACCESS_TOKEN_KEY,pinToken);}catch(e){}
+    var url=new URL(window.location.href);
+    url.searchParams.delete('pin_access_token');
+    window.history.replaceState({},'',url.toString());
+    pinPassed=true;
+  }
   if(pinPassed){document.addEventListener('DOMContentLoaded',function(){document.body.style.visibility='visible';});return;}
   document.addEventListener('DOMContentLoaded',function(){
-  var currentMethod='email';var currentIdentifier='';
-  var gateHtml='<div id="pin-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:16px;"><div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;"><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Verify Your Identify</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">To Protect Your Personal Data, you MUST verify your email address</p><form id="pin-request-form"><input type="email" id="pin-identifier" placeholder="Enter your email address" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" /><div id="pin-req-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="pin-send-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Send Verification Code</button></form><form id="pin-verify-form" style="display:none;"><p id="pin-sent-msg" style="font-size:14px;color:#6b7280;margin-bottom:12px;"></p><input type="text" id="pin-code" placeholder="Enter 6-digit PIN" maxlength="6" style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:20px;text-align:center;letter-spacing:8px;font-family:monospace;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" required /><div id="pin-ver-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="pin-verify-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Verify PIN</button><button type="button" id="pin-resend-btn" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:#6b7280;cursor:pointer;font-size:14px;">Resend PIN</button><button type="button" id="pin-back-btn" style="width:100%;padding:8px;background:none;border:none;color:#9ca3af;cursor:pointer;font-size:14px;">Use different contact</button></form></div></div>';
-  document.body.insertAdjacentHTML('beforeend',gateHtml);document.body.style.visibility='visible';
-  var reqForm=document.getElementById('pin-request-form');var verForm=document.getElementById('pin-verify-form');var idInput=document.getElementById('pin-identifier');var codeInput=document.getElementById('pin-code');var sendBtn=document.getElementById('pin-send-btn');var verifyBtn=document.getElementById('pin-verify-btn');var reqError=document.getElementById('pin-req-error');var verError=document.getElementById('pin-ver-error');var sentMsg=document.getElementById('pin-sent-msg');
+  var currentMethod='email';
+  var currentIdentifier='';
+  var gateHtml='<div id="pin-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:16px;">' +
+    '<div style="background:white;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);width:100%;max-width:420px;padding:32px;text-align:center;">' +
+    '<h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Verify Your Identify</h2>' +
+    '<p style="margin:0 0 24px;color:#6b7280;font-size:16px;">To Protect Your Personal Data, you MUST verify your email address</p>' +
+    '' +
+    '<form id="pin-request-form">' +
+    '<input type="email" id="pin-identifier" placeholder="Enter your email address" required style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:16px;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" />' +
+    '<div id="pin-req-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div>' +
+    '<button type="submit" id="pin-send-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Send Verification Code</button>' +
+    '</form>' +
+    '<form id="pin-verify-form" style="display:none;">' +
+    '<p id="pin-sent-msg" style="font-size:14px;color:#6b7280;margin-bottom:12px;"></p>' +
+    '<input type="text" id="pin-code" placeholder="Enter 6-digit PIN" maxlength="6" style="width:100%;box-sizing:border-box;height:48px;padding:0 16px;background:#fff;color:#111827;-webkit-text-fill-color:#111827;font-size:20px;text-align:center;letter-spacing:8px;font-family:monospace;border:1px solid #d1d5db;border-radius:8px;outline:none;margin-bottom:12px;" required />' +
+    '<div id="pin-ver-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div>' +
+    '<button type="submit" id="pin-verify-btn" style="width:100%;height:48px;font-size:16px;font-weight:600;color:white;border:none;border-radius:8px;cursor:pointer;background:#2563eb;">Verify PIN</button>' +
+    '<button type="button" id="pin-resend-btn" style="width:100%;margin-top:8px;padding:8px;background:none;border:none;color:#6b7280;cursor:pointer;font-size:14px;">Resend PIN</button>' +
+    '<button type="button" id="pin-back-btn" style="width:100%;padding:8px;background:none;border:none;color:#9ca3af;cursor:pointer;font-size:14px;">Use different contact</button>' +
+    '</form></div></div>';
+  document.body.insertAdjacentHTML('beforeend',gateHtml);
+  document.body.style.visibility='visible';
+  var reqForm=document.getElementById('pin-request-form');
+  var verForm=document.getElementById('pin-verify-form');
+  var idInput=document.getElementById('pin-identifier');
+  var codeInput=document.getElementById('pin-code');
+  var sendBtn=document.getElementById('pin-send-btn');
+  var verifyBtn=document.getElementById('pin-verify-btn');
+  var reqError=document.getElementById('pin-req-error');
+  var verError=document.getElementById('pin-ver-error');
+  var sentMsg=document.getElementById('pin-sent-msg');
   
-  function sendPin(){var id=idInput.value.trim();if(!id)return;sendBtn.disabled=true;sendBtn.textContent='Sending...';reqError.style.display='none';var body=currentMethod==='sms'?{phone:id}:{email:id};fetch(apiBase+'/api/landing-pages/public/'+slug+'/generate-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.success){currentIdentifier=id;reqForm.style.display='none';verForm.style.display='block';sentMsg.textContent='We sent a 6-digit PIN to '+id;codeInput.focus();}else{reqError.textContent=d.message||'Failed to send PIN';reqError.style.display='block';}}).catch(function(){reqError.textContent='Failed to send PIN';reqError.style.display='block';}).finally(function(){sendBtn.disabled=false;sendBtn.textContent='Send Verification Code';});}
-  function verifyPin(){var pin=codeInput.value.trim();if(!pin||pin.length!==6){verError.textContent='Please enter the 6-digit PIN';verError.style.display='block';return;}verifyBtn.disabled=true;verifyBtn.textContent='Verifying...';verError.style.display='none';var body=currentMethod==='sms'?{phone:currentIdentifier,pin:pin}:{email:currentIdentifier,pin:pin};fetch(apiBase+'/api/landing-pages/public/'+slug+'/verify-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.verified){localStorage.setItem(PIN_TOKEN_KEY,d.accessToken);try{sessionStorage.setItem('lp_access_'+slug,d.accessToken);}catch(e){}window.location.reload();}else{verError.textContent=d.message||'Invalid PIN code';verError.style.display='block';}}).catch(function(){verError.textContent='Failed to verify PIN';verError.style.display='block';}).finally(function(){verifyBtn.disabled=false;verifyBtn.textContent='Verify PIN';});}
-  reqForm.addEventListener('submit',function(e){e.preventDefault();sendPin();});verForm.addEventListener('submit',function(e){e.preventDefault();verifyPin();});document.getElementById('pin-resend-btn').addEventListener('click',sendPin);document.getElementById('pin-back-btn').addEventListener('click',function(){verForm.style.display='none';reqForm.style.display='block';codeInput.value='';verError.style.display='none';});codeInput.addEventListener('input',function(e){e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6);});idInput.focus();
+  function sendPin(){
+    var id=idInput.value.trim();if(!id)return;
+    sendBtn.disabled=true;sendBtn.textContent='Sending...';reqError.style.display='none';
+    var body=currentMethod==='sms'?{phone:id}:{email:id};
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/generate-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.success){currentIdentifier=id;reqForm.style.display='none';verForm.style.display='block';sentMsg.textContent='We sent a 6-digit PIN to '+id;codeInput.focus();}
+      else{reqError.textContent=d.message||'Failed to send PIN';reqError.style.display='block';}
+    })
+    .catch(function(){reqError.textContent='Failed to send PIN';reqError.style.display='block';})
+    .finally(function(){sendBtn.disabled=false;sendBtn.textContent='Send Verification Code';});
+  }
+  function verifyPin(){
+    var pin=codeInput.value.trim();if(!pin||pin.length!==6){verError.textContent='Please enter the 6-digit PIN';verError.style.display='block';return;}
+    verifyBtn.disabled=true;verifyBtn.textContent='Verifying...';verError.style.display='none';
+    var body=currentMethod==='sms'?{phone:currentIdentifier,pin:pin}:{email:currentIdentifier,pin:pin};
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/verify-pin',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.verified){localStorage.setItem(PIN_TOKEN_KEY,d.accessToken);try{sessionStorage.setItem(ACCESS_TOKEN_KEY,d.accessToken);}catch(e){}window.location.reload();}
+      else{verError.textContent=d.message||'Invalid PIN code';verError.style.display='block';}
+    })
+    .catch(function(){verError.textContent='Failed to verify PIN';verError.style.display='block';})
+    .finally(function(){verifyBtn.disabled=false;verifyBtn.textContent='Verify PIN';});
+  }
+  reqForm.addEventListener('submit',function(e){e.preventDefault();sendPin();});
+  verForm.addEventListener('submit',function(e){e.preventDefault();verifyPin();});
+  document.getElementById('pin-resend-btn').addEventListener('click',sendPin);
+  document.getElementById('pin-back-btn').addEventListener('click',function(){verForm.style.display='none';reqForm.style.display='block';codeInput.value='';verError.style.display='none';});
+  codeInput.addEventListener('input',function(e){e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6);});
+  idInput.focus();
   });
 })();
 </script>
 <style data-gate>body{visibility:hidden;}</style>
 <script data-gate>
 (function(){
-  var slug='lp-mpy5ovz5-lqmzm';var apiBase='https://paymegpt.com';var ACCESS_TOKEN_KEY='lp_access_'+slug;var PAID_EMAIL_KEY='lp_paid_email_'+slug;var buttonLabel='Start for $9/month';var paywallPassed=false;
-  var storedToken=sessionStorage.getItem(ACCESS_TOKEN_KEY);if(storedToken){paywallPassed=true;}
-  var urlParams=new URLSearchParams(window.location.search);var paymentStatus=urlParams.get('payment');var emailFromUrl=urlParams.get('email');
-  if(!paywallPassed){var storedEmail=localStorage.getItem(PAID_EMAIL_KEY);if(storedEmail||emailFromUrl){var checkEmail=emailFromUrl||storedEmail;try{var xhr=new XMLHttpRequest();xhr.open('GET',apiBase+'/api/landing-pages/public/'+slug+'/access-status?email='+encodeURIComponent(checkEmail),false);xhr.send();if(xhr.status===200){var d=JSON.parse(xhr.responseText);if(!d.requiresPayment||d.hasPaidAccess){paywallPassed=true;if(d.hasPaidAccess)sessionStorage.setItem(ACCESS_TOKEN_KEY,'paid_'+slug+'_'+Date.now());}}}catch(e){}}}
+  var slug='lp-mpy5ovz5-lqmzm';
+  var apiBase='https://paymegpt.com';
+  var ACCESS_TOKEN_KEY='lp_access_'+slug;
+  var PAID_EMAIL_KEY='lp_paid_email_'+slug;
+  var buttonLabel='Start for $9/month';
+  var paywallPassed=false;
+  var storedToken=sessionStorage.getItem(ACCESS_TOKEN_KEY);
+  if(storedToken){paywallPassed=true;}
+  var urlParams=new URLSearchParams(window.location.search);
+  var paymentStatus=urlParams.get('payment');
+  var emailFromUrl=urlParams.get('email');
+  if(!paywallPassed){
+    var storedEmail=localStorage.getItem(PAID_EMAIL_KEY);
+    if(storedEmail||emailFromUrl){
+      var checkEmail=emailFromUrl||storedEmail;
+      try{
+        var xhr=new XMLHttpRequest();
+        xhr.open('GET',apiBase+'/api/landing-pages/public/'+slug+'/access-status?email='+encodeURIComponent(checkEmail),false);
+        xhr.send();
+        if(xhr.status===200){
+          var d=JSON.parse(xhr.responseText);
+          if(!d.requiresPayment||d.hasPaidAccess){
+            paywallPassed=true;
+            if(d.hasPaidAccess)sessionStorage.setItem(ACCESS_TOKEN_KEY,'paid_'+slug+'_'+Date.now());
+          }
+        }
+      }catch(e){}
+    }
+  }
   if(paywallPassed){document.addEventListener('DOMContentLoaded',function(){document.body.style.visibility='visible';});return;}
   function fmtP(c,cu){return new Intl.NumberFormat('en-US',{style:'currency',currency:cu}).format(c/100);}
   document.addEventListener('DOMContentLoaded',function(){
     var imgHtml='<div style="width:64px;height:64px;border-radius:50%;background:#f0f4ff;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>';
-    var gwHtml='<div id="paywall-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;"><div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);">'+imgHtml+'<h2 style="margin:0 0 12px;font-size:24px;font-weight:600;color:#1a1a2e;">Beyond Your A1c Membership</h2><p style="margin:0 0 20px;color:#6b7280;font-size:16px;">Unlimited lab uploads, plain-English explanations, and trend tracking over time. $9/month, cancel anytime.</p><div style="font-size:32px;font-weight:700;color:#4f46e5;margin-bottom:24px;">'+fmtP(900,'USD')+'<span style="font-size:14px;font-weight:400;color:#6b7280;">'+'/month'+'</span></div><form id="paywall-form" style="margin-bottom:16px;"><label style="display:block;text-align:left;font-size:14px;color:#6b7280;margin-bottom:8px;">Enter your email to continue</label><input type="email" id="paywall-email" placeholder="you@example.com" required style="width:100%;box-sizing:border-box;padding:14px;font-size:16px;border:1px solid #e5e7eb;border-radius:8px;outline:none;margin-bottom:8px;" /><p style="font-size:12px;color:#9ca3af;margin-bottom:12px;">Already purchased? Enter your email to access instantly.</p><div id="paywall-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div><button type="submit" id="paywall-submit" style="width:100%;padding:14px;font-size:16px;font-weight:600;background:#4f46e5;color:white;border:none;border-radius:8px;cursor:pointer;">'+buttonLabel+'</button></form><p style="font-size:12px;color:#9ca3af;">Secure payment powered by Stripe</p></div></div>';
-    document.body.insertAdjacentHTML('beforeend',gwHtml);document.body.style.visibility='visible';
-    if(paymentStatus==='success'&&emailFromUrl){var sessionIdFromUrl=urlParams.get('session_id');fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:emailFromUrl,sessionId:sessionIdFromUrl})}).then(function(r){return r.json();}).then(function(d){if(d.hasAccess){localStorage.setItem(PAID_EMAIL_KEY,emailFromUrl);sessionStorage.setItem(ACCESS_TOKEN_KEY,d.accessToken);window.history.replaceState({},'',window.location.pathname);var gate=document.getElementById('paywall-gate');if(gate)gate.remove();}});return;}
-    document.getElementById('paywall-form').addEventListener('submit',function(e){e.preventDefault();var email=document.getElementById('paywall-email').value.trim();if(!email)return;var submitBtn=document.getElementById('paywall-submit');submitBtn.textContent='Processing...';submitBtn.disabled=true;fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})}).then(function(r){return r.json();}).then(function(d){if(d.hasAccess){localStorage.setItem(PAID_EMAIL_KEY,email);sessionStorage.setItem(ACCESS_TOKEN_KEY,d.accessToken);document.getElementById('paywall-gate').remove();return;}return fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,successUrl:window.location.href.split('?')[0]+'?payment=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:window.location.href.split('?')[0]+'?payment=cancelled'})}).then(function(r){return r.json();}).then(function(d){if(d.alreadyHasAccess){localStorage.setItem(PAID_EMAIL_KEY,email);sessionStorage.setItem(ACCESS_TOKEN_KEY,'paid_'+slug+'_'+Date.now());document.getElementById('paywall-gate').remove();return;}if(d.checkoutUrl){localStorage.setItem(PAID_EMAIL_KEY,email);window.location.href=d.checkoutUrl;}else{document.getElementById('paywall-error').textContent=d.error||'Failed to process payment';document.getElementById('paywall-error').style.display='block';submitBtn.textContent=buttonLabel;submitBtn.disabled=false;}});}).catch(function(){document.getElementById('paywall-error').textContent='An error occurred. Please try again.';document.getElementById('paywall-error').style.display='block';submitBtn.textContent=buttonLabel;submitBtn.disabled=false;});});
+    var gwHtml='<div id="paywall-gate" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;">'+
+      '<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);">'+
+      imgHtml+
+      '<h2 style="margin:0 0 12px;font-size:24px;font-weight:600;color:#1a1a2e;">Beyond Your A1c Membership</h2>'+
+      '<p style="margin:0 0 20px;color:#6b7280;font-size:16px;">Unlimited lab uploads, plain-English explanations, and trend tracking over time. $9/month, cancel anytime.</p>'+
+      '<div style="font-size:32px;font-weight:700;color:#4f46e5;margin-bottom:24px;">'+fmtP(900,'USD')+'<span style="font-size:14px;font-weight:400;color:#6b7280;">'+'/month'+'</span></div>'+
+      '<form id="paywall-form" style="margin-bottom:16px;">'+
+      '<label style="display:block;text-align:left;font-size:14px;color:#6b7280;margin-bottom:8px;">Enter your email to continue</label>'+
+      '<input type="email" id="paywall-email" placeholder="you@example.com" required style="width:100%;box-sizing:border-box;padding:14px;font-size:16px;border:1px solid #e5e7eb;border-radius:8px;outline:none;margin-bottom:8px;" />'+
+      '<p style="font-size:12px;color:#9ca3af;margin-bottom:12px;">Already purchased? Enter your email to access instantly.</p>'+
+      '<div id="paywall-error" style="display:none;color:#ef4444;font-size:14px;margin-bottom:12px;"></div>'+
+      '<button type="submit" id="paywall-submit" style="width:100%;padding:14px;font-size:16px;font-weight:600;background:#4f46e5;color:white;border:none;border-radius:8px;cursor:pointer;">'+buttonLabel+'</button>'+
+      '</form>'+
+      '<p style="font-size:12px;color:#9ca3af;">Secure payment powered by Stripe</p>'+
+      '</div></div>';
+    document.body.insertAdjacentHTML('beforeend',gwHtml);
+    document.body.style.visibility='visible';
+    if(paymentStatus==='success'&&emailFromUrl){
+      var sessionIdFromUrl=urlParams.get('session_id');
+      fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:emailFromUrl,sessionId:sessionIdFromUrl})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.hasAccess){localStorage.setItem(PAID_EMAIL_KEY,emailFromUrl);sessionStorage.setItem(ACCESS_TOKEN_KEY,d.accessToken);window.history.replaceState({},'',window.location.pathname);var gate=document.getElementById('paywall-gate');if(gate)gate.remove();}
+      });
+      return;
+    }
+    document.getElementById('paywall-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=document.getElementById('paywall-email').value.trim();if(!email)return;
+      var submitBtn=document.getElementById('paywall-submit');
+      submitBtn.textContent='Processing...';submitBtn.disabled=true;
+      fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.hasAccess){localStorage.setItem(PAID_EMAIL_KEY,email);sessionStorage.setItem(ACCESS_TOKEN_KEY,d.accessToken);document.getElementById('paywall-gate').remove();return;}
+        return fetch(apiBase+'/api/landing-pages/public/'+slug+'/paywall/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,successUrl:window.location.href.split('?')[0]+'?payment=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:window.location.href.split('?')[0]+'?payment=cancelled'})})
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(d.alreadyHasAccess){localStorage.setItem(PAID_EMAIL_KEY,email);sessionStorage.setItem(ACCESS_TOKEN_KEY,'paid_'+slug+'_'+Date.now());document.getElementById('paywall-gate').remove();return;}
+          if(d.checkoutUrl){localStorage.setItem(PAID_EMAIL_KEY,email);window.location.href=d.checkoutUrl;}
+          else{document.getElementById('paywall-error').textContent=d.error||'Failed to process payment';document.getElementById('paywall-error').style.display='block';submitBtn.textContent=buttonLabel;submitBtn.disabled=false;}
+        });
+      })
+      .catch(function(){document.getElementById('paywall-error').textContent='An error occurred. Please try again.';document.getElementById('paywall-error').style.display='block';submitBtn.textContent=buttonLabel;submitBtn.disabled=false;});
+    });
   });
 })();
 </script>
